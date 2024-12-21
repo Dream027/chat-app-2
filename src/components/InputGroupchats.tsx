@@ -1,8 +1,7 @@
 "use client";
 
-import { useSession } from "@/contexts/SessionProvider";
-import { socket } from "@/utils/socket";
 import { MousePointer2, Send } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { useCallback, useRef, useState } from "react";
 
 type InputGroupchatsProps = {
@@ -16,36 +15,13 @@ export default function InputGroupchats({ group }: InputGroupchatsProps) {
 
     const sendmessage = useCallback(() => {
         if (!value) return;
-        if (!socket.connected) {
-            socket.connect();
-            return;
-        }
-
-        socket.emit("group-message", {
-            sender: sesion?._id,
-            id: group._id,
-            data: value,
-            timestamp: Date.now(),
-        });
         setValue("");
     }, [value, group, sesion]);
 
     const sendFiles = useCallback(() => {
         if (!fileInputRef.current) return;
         if (!fileInputRef.current.files) return;
-        if (!socket.connected) {
-            socket.connect();
-            return;
-        }
 
-        socket.emit("group-message-files", {
-            sender: sesion?._id,
-            id: group._id,
-            data: fileInputRef.current.files[0],
-            fileName: fileInputRef.current.files[0].name,
-            fileType: fileInputRef.current.files[0].type,
-            timestamp: Date.now(),
-        });
         fileInputRef.current.files = null;
     }, [group, sesion]);
 

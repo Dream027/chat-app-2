@@ -1,6 +1,6 @@
 "use client";
 
-import Alert from "@/components/styles/Alert";
+import Alert from "@/components/Alert";
 import { Camera, PenBox } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";

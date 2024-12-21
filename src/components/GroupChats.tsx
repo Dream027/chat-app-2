@@ -1,11 +1,10 @@
 "use client";
 
-import { useSession } from "@/contexts/SessionProvider";
-import { socket } from "@/utils/socket";
 import { Trash } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 type GroupChatsProps = {
     chats: Message[];
@@ -34,18 +33,12 @@ export default function GroupChats({ chats }: GroupChatsProps) {
             setMessages((prev) => [...prev, message]);
         }
 
-        socket.on("group-message", onMessage);
-        socket.on("group-message-deleted", messagesDeleted);
-
-        return () => {
-            socket.off("group-message", onMessage);
-            socket.off("group-message-deleted", messagesDeleted);
-        };
+        return () => {};
     }, [messagesDeleted]);
 
     const selectChat = useCallback(
         (timestamp: number, sender: string) => {
-            if (session?._id !== sender) {
+            if (session?.data?.user._id !== sender) {
                 return;
             }
             if (selectedChats.includes(timestamp)) {
@@ -60,10 +53,6 @@ export default function GroupChats({ chats }: GroupChatsProps) {
     );
 
     const deleteChats = useCallback(() => {
-        socket.emit("group-message-delete", {
-            timestamps: selectedChats,
-            id: params.groupId,
-        });
         setSelectedChats([]);
     }, [selectedChats, params.groupId]);
 
@@ -78,7 +67,7 @@ export default function GroupChats({ chats }: GroupChatsProps) {
                 chat.fileType?.startsWith("image") ? (
                     <div
                         className={`${
-                            chat.sender === session?._id
+                            chat.sender === session?.data?.user._id
                                 ? "chat_image_sent"
                                 : ""
                         } chat_image ${
@@ -103,7 +92,9 @@ export default function GroupChats({ chats }: GroupChatsProps) {
                     >
                         <p
                             className={
-                                chat.sender === session?._id ? "chat_sent" : ""
+                                chat.sender === session?.data?.user._id
+                                    ? "chat_sent"
+                                    : ""
                             }
                         >
                             {chat.data}
