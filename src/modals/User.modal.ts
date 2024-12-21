@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 interface User {
-    _id: mongoose.Schema.Types.ObjectId;
+    // _id: mongoose.Schema.Types.ObjectId;
     email: string;
     password: string;
     name: string;
