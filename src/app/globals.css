@@ -1,0 +1,311 @@
+:root {
+    --clr-primary-100: hsl(200, 80%, 90%);
+    --clr-primary-200: hsl(200, 80%, 80%);
+    --clr-primary-300: hsl(200, 80%, 70%);
+    --clr-primary-400: hsl(200, 80%, 60%);
+    --clr-primary-500: hsl(200, 80%, 50%);
+    --clr-primary-600: hsl(200, 80%, 40%);
+    --clr-primary-700: hsl(200, 80%, 30%);
+    --clr-primary-800: hsl(200, 80%, 20%);
+
+    --clr-neutral-50: hsl(0, 0%, 95%);
+    --clr-neutral-100: hsl(0, 0%, 90%);
+    --clr-neutral-200: hsl(0, 0%, 80%);
+    --clr-neutral-300: hsl(0, 0%, 70%);
+    --clr-neutral-400: hsl(0, 0%, 60%);
+    --clr-neutral-500: hsl(0, 0%, 50%);
+    --clr-neutral-600: hsl(0, 0%, 40%);
+    --clr-neutral-700: hsl(0, 0%, 30%);
+    --clr-neutral-800: hsl(0, 0%, 20%);
+
+    --clr-card-bg: white;
+    --clr-card-border: #ccc8;
+    --clr-shadow: #ccc4;
+
+    --navbar-height: 6rem;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    height: 100svh;
+}
+
+button {
+    background: var(--clr-neutral-800);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: inherit;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    background: var(--clr-neutral-700);
+}
+
+button:disabled {
+    background: var(--clr-neutral-600);
+    cursor: default;
+}
+
+input {
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid transparent;
+    background-color: var(--clr-neutral-50);
+    color: var(--clr-neutral-600);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    outline: none;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.loader {
+    color: inherit;
+    animation: rotate 2s infinite linear;
+    height: 20px;
+    width: 20px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.margined-layout {
+    margin: 100px 0 0 150px;
+}
+
+.carousel > :first-child {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.carousel_content {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    padding: 2rem;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel_content.carousel_active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+    height: 8rem;
+}
+
+.btn-secondary {
+    background: var(--clr-neutral-100);
+    color: var(--clr-neutral-800);
+}
+
+.btn-secondary:hover {
+    background: var(--clr-neutral-200);
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.align-center > a {
+    text-decoration: none;
+    color: var(--clr-primary-600);
+}
+.align-center > a:hover {
+    color: var(--clr-primary-800);
+}
+
+.alert-backdrop {
+    --delay: 600ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    background: hsl(0 0% 0% / 0.4);
+    visibility: hidden;
+    pointer-events: none;
+    transition: var(--delay) ease-in-out;
+    opacity: 0;
+}
+
+.alert-box {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--clr-card-bg);
+    border: 1px solid var(--clr-card-border);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 40px hsl(0 0% 0% / 0.5);
+    transition: var(--delay) ease-in-out;
+}
+
+.alert-backdrop.alert-active {
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+}
+
+.alert-backdrop.alert-active .alert-box {
+    top: 50%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="file"] + div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+input[type="file"] + div > :first-child {
+    padding: 2rem 4rem;
+    border-radius: 0.5rem;
+    border: 1px dashed var(--clr-neutral-600);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+.otp-verify {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.otp-verify input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid hsl(0, 0%, 60%, 40%);
+    max-width: 25rem;
+}
+.otp-verify input:focus {
+    border-bottom-color: hsl(200, 80%, 50%, 40%);
+}
+.otp-verify > div {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+.otp-verify p {
+    font-size: 0.85rem;
+}
+
+.home_page {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.home_page > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.invitation_send {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    min-width: 600px;
+    width: 60%;
+}
+.invitation_send input {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-bottom-color: var(--clr-neutral-600);
+}
+.invitation_send input:focus {
+    border-color: var(--clr-primary-600);
+}
+
+.invitations_view {
+    margin-top: 2rem;
+    display: grid;
+    gap: 3rem;
+    min-width: 600px;
+    width: 60%;
+}
+
+.invitation_icon {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 400px;
+    cursor: pointer;
+    padding: 1rem;
+    margin-block: 1rem;
+    border-radius: 0.5rem;
+    transition: 0.3s ease-in-out;
+}
+.invitation_icon:hover {
+    background-color: var(--clr-neutral-100);
+}
+.invitation_icon > div:nth-child(2) {
+    flex: 1;
+}
+.invitation_icon p {
+    font-size: 0.85rem;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    color: rgb(49, 255, 118);
+}
+.btn-icon-trash {
+    color: hsl(0, 98%, 65%);
+}
+.btn-icon:hover {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}

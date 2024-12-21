@@ -1,0 +1,88 @@
+main {
+    background: linear-gradient(var(--clr-primary-100), white);
+    height: 100svh;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    border: 1px solid var(--clr-card-border);
+    box-shadow: 0 0 20px var(--clr-card-shadow);
+    border-radius: 4px;
+    padding: 2.25rem 1.25rem;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    gap: 1.25rem;
+}
+
+.card h2 {
+    margin-bottom: 0.75rem;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+input {
+    background-color: white;
+    border: 1px solid var(--clr-card-border);
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container label {
+    position: absolute;
+    font-weight: 600;
+    display: inline;
+    cursor: text;
+    top: -20%;
+    left: 16px;
+    transition: 0.3s ease-in-out;
+    background-color: white;
+}
+
+.input-container:has(input:focus) label,
+.input-container:has(input.toggle) label {
+    top: -66%;
+    left: 12px;
+    font-size: 0.85rem;
+}
+
+select {
+    width: 80%;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+
+.video-container {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    padding: 4rem;
+    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+video {
+    width: 500px;
+    background: white;
+    height: 100%;
+    border: 1px solid var(--clr-card-border);
+    box-shadow: 10px 10px 40px var(--clr-card-shadow);
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+div.main {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.video-container + button {
+    background-color: hsl(0, 75%, 60%);
+}
