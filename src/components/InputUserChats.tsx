@@ -15,7 +15,7 @@ export default function InputUserChats({ friend }: { friend: User }) {
         if (!fileInputRef.current) return;
         if (!fileInputRef.current.files) return;
         fileInputRef.current.files = null;
-    }, [fileInputRef, friend, session]);
+    }, [fileInputRef]);
 
     const sendmessage = useCallback(() => {
         axios

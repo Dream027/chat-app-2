@@ -15,9 +15,9 @@ export default function UserInvatations({ invitations }: UserInvitationProps) {
     const session = useSession();
     const router = useRouter();
 
-    const deleteRequest = useCallback(async (id: string) => {}, [router]);
-    const rejectInvitation = useCallback(async (id: string) => {}, [router]);
-    const acceptInvitation = useCallback(async (id: string) => {}, [router]);
+    const deleteRequest = useCallback(async (id: string) => {}, []);
+    const rejectInvitation = useCallback(async (id: string) => {}, []);
+    const acceptInvitation = useCallback(async (id: string) => {}, []);
 
     return (
         <div className="invitations_main">

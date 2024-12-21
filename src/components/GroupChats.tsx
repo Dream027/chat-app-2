@@ -26,7 +26,7 @@ export default function GroupChats({ chats }: GroupChatsProps) {
 
     useEffect(() => {
         chatsRef.current?.scrollTo(0, chatsRef.current.scrollHeight);
-    }, [messages]);
+    }, []);
 
     useEffect(() => {
         function onMessage(message: Message) {
@@ -34,7 +34,7 @@ export default function GroupChats({ chats }: GroupChatsProps) {
         }
 
         return () => {};
-    }, [messagesDeleted]);
+    }, []);
 
     const selectChat = useCallback(
         (timestamp: number, sender: string) => {

@@ -59,6 +59,7 @@ export default async function InvitationViewPage() {
                         <div>
                             {receivedInvitations.map((i) => (
                                 <InvitationIcon
+                                    key={i._id}
                                     email={i.sender.email}
                                     name={i.sender.name}
                                     image={i.sender.image}

@@ -24,7 +24,7 @@ export default function OtpVerification({ email }: { email: string }) {
                 }
             })
             .catch((err) => toast.error(err));
-    }, []);
+    }, [email]);
 
     const submitOTP = useCallback(() => {
         axios
@@ -45,7 +45,7 @@ export default function OtpVerification({ email }: { email: string }) {
                 }
             })
             .catch((err) => toast.error(err));
-    }, []);
+    }, [email, router]);
 
     const resendOTP = useCallback(() => {
         axios
@@ -64,7 +64,7 @@ export default function OtpVerification({ email }: { email: string }) {
                 }
             })
             .catch((err) => toast.error(err));
-    }, []);
+    }, [email, router]);
 
     return (
         <div className="margined-layout otp-verify">

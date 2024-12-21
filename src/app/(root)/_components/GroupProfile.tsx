@@ -18,11 +18,11 @@ export default function GroupProfile({ group }: { group: Group }) {
 
     useEffect(() => {
         (async () => {})();
-    }, [group]);
+    }, []);
 
-    const joinGroup = useCallback(async () => {}, [group, router]);
+    const joinGroup = useCallback(async () => {}, []);
 
-    const leavegroup = useCallback(async () => {}, [group, router]);
+    const leavegroup = useCallback(async () => {}, []);
 
     return (
         <div>

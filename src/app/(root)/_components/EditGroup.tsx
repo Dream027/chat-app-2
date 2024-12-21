@@ -19,14 +19,9 @@ export default function EditGroup({ group }: EditGroupProps) {
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const router = useRouter();
 
-    const updatePicture = useCallback(async () => {}, [file, group, router]);
+    const updatePicture = useCallback(async () => {}, []);
 
-    const updateGroup = useCallback(async () => {}, [
-        desc,
-        name,
-        group,
-        router,
-    ]);
+    const updateGroup = useCallback(async () => {}, []);
 
     return (
         <>

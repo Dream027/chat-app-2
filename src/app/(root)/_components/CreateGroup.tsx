@@ -8,7 +8,7 @@ export default function GroupCreate() {
     const descRef = useRef<HTMLTextAreaElement | null>(null);
     const router = useRouter();
 
-    const createGroup = useCallback(async () => {}, [router]);
+    const createGroup = useCallback(async () => {}, []);
     return (
         <div className="margined-layout group_main">
             <h1 style={{ marginBottom: "2rem" }}>Create Group</h1>

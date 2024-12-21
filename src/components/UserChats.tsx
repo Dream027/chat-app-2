@@ -33,7 +33,7 @@ export default function UserChats({ chats }: UserChatsProps) {
             pusherClient.unsubscribe("message");
             pusherClient.unbind(`message-${session.data?.user._id}`, onMessage);
         };
-    }, []);
+    }, [session.data?.user._id]);
 
     const selectChat = useCallback(
         (timestamp: number, sender: string) => {
@@ -51,7 +51,7 @@ export default function UserChats({ chats }: UserChatsProps) {
         [selectedChats, session]
     );
 
-    const deleteChats = useCallback(() => {}, [selectedChats, params.chatId]);
+    const deleteChats = useCallback(() => {}, []);
 
     return (
         <div className="chat_container" ref={chatsRef}>

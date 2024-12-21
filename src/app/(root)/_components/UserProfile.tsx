@@ -23,18 +23,9 @@ export default function UserProfile({ session }: { session: User }) {
         },
         []
     );
-    const updateProfile = useCallback(async () => {}, [
-        name,
-        email,
-        router,
-        session,
-    ]);
+    const updateProfile = useCallback(async () => {}, []);
 
-    const changeProfilePic = useCallback(async () => {}, [
-        file,
-        router,
-        session,
-    ]);
+    const changeProfilePic = useCallback(async () => {}, []);
 
     return (
         <>
