@@ -189,7 +189,7 @@ export const PUT = routeHandler(async (req: NextRequest) => {
         return new APIResponse(false, 400, "Log in first.");
     }
 
-    const user = (await User.findById(session?.user._id)) as UserDocument;
+    const user = await User.findById(session?.user._id);
     if (!user) {
         return new APIResponse(false, 400, "User not found.");
     }
@@ -201,7 +201,7 @@ export const PUT = routeHandler(async (req: NextRequest) => {
         friendId = invitation.sender.toString();
     }
 
-    const friend = (await User.findById(friendId)) as UserDocument;
+    const friend = await User.findById(friendId);
     if (!friend) {
         return new APIResponse(false, 400, "Friend not found.");
     }
