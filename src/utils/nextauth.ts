@@ -50,7 +50,7 @@ export const authoptions: AuthOptions = {
                     name: user.name,
                     email: user.email,
                     image: user.image,
-                };
+                } as any;
             },
         }),
         GoogleProvider({
@@ -64,7 +64,7 @@ export const authoptions: AuthOptions = {
                 return {
                     ...token,
                     ...user,
-                };
+                } as any;
             }
             return token;
         },
